@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link rel="stylesheet" href="lib/bootstrap.min.css">
+  <title>Broadcaster</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand mb-0 h1" href="index.html">ScreenShare</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Broadcast <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="watch.html">Watch</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row">
+    <div class="col">
+      <div class="input-group mb-12">
+        <input type="text" placeholder="Create your ScreenShare ID" class="form-control" id="broadcaster-join-id"
+          onchange="isUnique(this.value)" aria-describedby="join-id">
+        <div class="input-group-append">
+          <button type="button" id="btn-start-share" onclick="getStream()" disabled class="btn btn-success btn-sm">Share
+            Now</button>
+          <button type="button" id="btn-stop-share" style="display: none;" onclick="stopStream()"
+            class="btn btn-danger btn-sm">Stop
+            Sharing
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-9">
+      <div class="accordion" id="accordionExample">
+        <div class="card">
+          <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                Screen
+              </button>
+            </h2>
+          </div>
+          <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+            <video playsinline autoplay controls></video>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+              <button class="btn btn-link btn-block text-left collapsed" type="button" data-toggle="collapse"
+                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                Sketch
+              </button>
+            </h2>
+          </div>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="row">
+              <div class="col">
+                <div class="input-group mb-12">
+                  <input type="text" name="custom_color" id="pickcolor" value="#FFFFFF" id="pickcolor"
+                    class="form-control" />
+                  <div class="input-group-append">
+                    <button type="button" id="color-btn" class="btn btn-primary btn-sm">Change color
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <div class="input-group mb-12">
+                  <input type="text" name="custom_color" id="stroke-width-picker" value="4" id="pickcolor"
+                    class="form-control" />
+                  <div class="input-group-append">
+                    <button type="button" id="stroke-btn" class="btn btn-primary btn-sm">Change stroke width
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card-body">
+              <div id='container'></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/broadcast.js"></script>
+  <script type="text/javascript" src="lib/p5.min.js"></script>
+  <script type="text/javascript" src="lib/p5.sound.min.js"></script>
+  <script type="text/javascript" src="/sketch.js"></script>
+  <script type="text/javascript" src="lib/jquery-3.5.1.slim.min.js"></script>
+  <script type="text/javascript" src="lib/bootstrap.min.js"></script>
+</body>
+
+</html>

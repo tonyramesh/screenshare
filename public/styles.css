@@ -1,0 +1,13 @@
+html {
+  overflow: hidden;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 80%;
+}
+
+#broadcaster-join-id {
+  box-shadow: none !important;
+}

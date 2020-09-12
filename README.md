@@ -24,4 +24,3 @@ After that, you just need to visit localhost:4000/watch.html to connect to the s
 ## Author
 
 Tony R
-"# screenshare" 
